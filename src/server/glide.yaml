@@ -1,0 +1,17 @@
+package: github.com/liangdas/mqantserver/src/server
+import:
+- package: github.com/liangdas/mqant
+  subpackages:
+  - conf
+  - gate
+  - gate/base
+  - log
+  - module
+  - module/base
+  - module/modules
+  - network
+  - rpc
+  - rpc/pb
+- package: github.com/opentracing/opentracing-go
+- package: github.com/yireyun/go-queue
+- package: sourcegraph.com/sourcegraph/appdash
