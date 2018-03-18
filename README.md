@@ -3,6 +3,9 @@
 
 	git clone https://github.com/liangdas/mqantserver
 
+# 由社区提供的docker环境
+[mqant-docker](https://github.com/bjfumac/mqant-docker)
+
 # GOPATH 用法
 
 GOPATH 用法可以看这边文章[GOPATH 用法](http://www.mqant.com/topic/597714ca8f2e454b2eb1c1ee)
@@ -18,11 +21,13 @@ GOPATH 用法可以看这边文章[GOPATH 用法](http://www.mqant.com/topic/597
 	go get github.com/opentracing/basictracer-go
 	go get github.com/opentracing/opentracing-go
 	go get github.com/yireyun/go-queue
-	go get github.com/eclipse/paho.mqtt.golang
-	go get github.com/liangdas/mqant
 	go get github.com/garyburd/redigo
 	go get sourcegraph.com/sourcegraph/appdash
 	go get sourcegraph.com/sourcegraph/appdash-data
+	go get github.com/eclipse/paho.mqtt.golang         用于后端机器人
+	go get github.com/liangdas/mqant
+	go get github.com/liangdas/mqant-modules           牌桌模块,短信发送模块
+	go get github.com/liangdas/armyant                 用于后端机器人
 
 	
 # go get golang.org/x/net 安装失败处理方案
@@ -48,7 +53,7 @@ GOPATH 用法可以看这边文章[GOPATH 用法](http://www.mqant.com/topic/597
 
 如果一切顺利，运行 bin/server 你可以获得以下输出：
 
-> ./bin/server --conf bin/conf/server.conf --log bin/logs
+> ./bin/server --conf bin/conf/server.json --log bin/logs
 
 	[release] mqant 1.0.0 starting up
 	[debug  ] RPCClient create success type(Gate) id(127.0.0.1:Gate)
@@ -90,9 +95,11 @@ mqantserver已内置了一个web模块（源码在server/webapp），因此进�
 
 小球碰撞游戏DEMO访问地址为：http://127.0.0.1:8080/mqant/hitball/index.html
 
-# 启动python版本客户端
+# 猜数字游戏
 
-执行src/client/mqtt_chat_client.py即可 需要安装paho.mqtt库,请自行百度
+猜数字游戏无网页模块,而是实现了一个golang的后端机器人来模拟整个逻辑
+
+机器人代码在src/robot下,需要依赖github.com/liangdas/armyant
 
 # Demo演示说明
 
@@ -114,7 +121,7 @@ mqantserver已内置了一个web模块（源码在server/webapp），因此进�
 https://github.com/liangdas/mqantserver 仓库中包含了mqant框架,所用到的第三方库,聊天Demo服务端,聊天代码客户端代码
 
 	bin		
-		|-conf/server.conf			服务端配置文件
+		|-conf/server.json			服务端配置文件
 		|-public					web客户端静态文件
 		|-hitball					小球碰撞游戏DEMO客户端文件
 		|-console                   控制台web静态文件(还未完成)

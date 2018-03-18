@@ -13,6 +13,8 @@ import (
 	//appdashtracer "sourcegraph.com/sourcegraph/appdash/opentracing"
 	"github.com/opentracing/opentracing-go"
 	//"github.com/liangdas/mqant-modules/tracing"
+	"server/helloworld"
+	"server/xaxb"
 )
 
 var (
@@ -51,10 +53,12 @@ func main() {
 		modules.MasterModule(),
 		hitball.Module(),
 		mgate.Module(), //这是默认网关模块,是必须的支持 TCP,websocket,MQTT协议
+		helloworld.Module(),
 		login.Module(), //这是用户登录验证模块
 		chat.Module(),
 		user.Module(),
 		webapp.Module(),
+		xaxb.Module(),
 		//tracing.Module(), //很多初学者不会改文件路径，先移除了
 	) //这是聊天模块
 

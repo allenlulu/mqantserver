@@ -43,6 +43,12 @@
                             "ProcessID":"development"
                         }
                 ],
+        "HelloWorld":[
+          {
+            "Id":"HelloWorld001",
+            "ProcessID":"development"
+          }
+        ],
         "Login":[
                 {
                     "Id":"Login001",
@@ -72,6 +78,19 @@
                         "Id":"Hitball001",
                         "ProcessID":"development"
                    }
+        ],
+        "XaXb":[
+          {
+            "Id":"XaXb001",
+            "ProcessID":"development",
+            //            "Redis":{
+            //              "Uri"          :"redis://:payplug@115.28.62.110:6379/10",
+            //              "Queue"        :"XaXb001"
+            //            },
+            "Settings":{
+              "LevelPath":      	 "static/tacit/assets/levels/level1.json"
+            }
+          }
         ],
         "Webapp":[
                         {
@@ -104,16 +123,17 @@
 	    // 最大写入包队列缓存
         "WirteLoopChanNum": 10,
         // 最大读取包队列缓存
-        "ReadPackLoop": 10,
+        "ReadPackLoop": 1,
         // 读取超时
         "ReadTimeout": 600,
         // 写入超时
         "WriteTimeout": 300
 	},
     "Rpc":{
+        "MaxCoroutine":100,
         // 远程访问最后期限值 单位秒 这个值指定了在客户端可以等待服务端多长时间来应答
         "RpcExpired": 3,
         //默认是 false 不打印
-        "LogSuccess":true
+        "LogSuccess":false
     }
 }
